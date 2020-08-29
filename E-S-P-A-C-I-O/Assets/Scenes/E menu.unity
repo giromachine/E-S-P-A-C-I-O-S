@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 735888915}
   - component: {fileID: 735888914}
   m_Layer: 5
-  m_Name: Estab Text
+  m_Name: Texto registro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Establecimiento
+  m_text: Registro
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ba1fac5711ef3b94ea278ea0227f5b39, type: 2}
   m_sharedMaterial: {fileID: -3852199262970292933, guid: ba1fac5711ef3b94ea278ea0227f5b39,
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 767183643}
   - component: {fileID: 767183642}
   m_Layer: 5
-  m_Name: Texto Cliente
+  m_Name: Texto Login
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cliente
+  m_text: Login
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e8e1b9eca793964da199f3f41b0ca59, type: 2}
   m_sharedMaterial: {fileID: -7536745054645754817, guid: 6e8e1b9eca793964da199f3f41b0ca59,
@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 769825997}
   - component: {fileID: 769825996}
   m_Layer: 5
-  m_Name: Boton Establecimento
+  m_Name: Boton Registro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1012,7 +1012,7 @@ GameObject:
   - component: {fileID: 1965552124}
   - component: {fileID: 1965552123}
   m_Layer: 5
-  m_Name: Boton Cliente
+  m_Name: Boton Login
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
