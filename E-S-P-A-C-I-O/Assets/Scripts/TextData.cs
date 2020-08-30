@@ -6,6 +6,9 @@ using TMPro;
 
 public class TextData : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] int contador = 0;
+
     public string Mail;
     public GameObject inputFieldMail;
     public GameObject inputFieldPassW;
@@ -25,6 +28,19 @@ public class TextData : MonoBehaviour
         }
     }
 
+    public void AddOne()
+    {
+        contador += 1;
+        scoreText.text = contador.ToString();
+    }
+    public void RestOne()
+    {
+        if (contador > 0)
+        {
+            contador -= 1;
+            scoreText.text = contador.ToString();
+        }
+    }
     private void DestroyTextData()
     {
         gameObject.SetActive(false);
