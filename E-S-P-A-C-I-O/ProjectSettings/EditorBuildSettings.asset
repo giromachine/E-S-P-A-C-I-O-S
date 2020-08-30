@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/E datos.unity
     guid: 0962ea962b2387b499fd552d1455e307
   - enabled: 1
-    path: Assets/Scenes/E horarios.unity
-    guid: 3e3628d9b301a4f4bb851c6b6e3beec2
-  - enabled: 1
     path: Assets/Scenes/E Login.unity
     guid: 4c06fd98974d0724aa8bc1dba9b4185b
   - enabled: 1
@@ -38,7 +35,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/E conteo.unity
     guid: 9ecce04d784e3a342ae19ec2950ceb8b
-  - enabled: 1
-    path: Assets/Scenes/E hora editar.unity
-    guid: 00da5b610fa1d194d85ffe4cad0d7a27
   m_configObjects: {}
