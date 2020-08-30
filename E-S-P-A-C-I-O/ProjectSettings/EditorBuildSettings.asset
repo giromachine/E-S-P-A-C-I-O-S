@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Clientes buscador.unity
     guid: f90178b2986301e478c499788eccb8cf
   - enabled: 1
-    path: Assets/Scenes/E Log-reg.unity
-    guid: 8d8cfe28b9c47d4428a0542b597a312a
+    path: Assets/Scenes/E LogReg.unity
+    guid: 299f8220beaccf54cad58177cc2f07bf
   - enabled: 1
     path: Assets/Scenes/E mail.unity
     guid: 9f19580bcc972af43a92fde2df19d9bb
@@ -27,15 +27,18 @@ EditorBuildSettings:
     path: Assets/Scenes/E Login.unity
     guid: 4c06fd98974d0724aa8bc1dba9b4185b
   - enabled: 1
-    path: Assets/Scenes/E menu.unity
-    guid: 299f8220beaccf54cad58177cc2f07bf
+    path: Assets/Scenes/E Main menu.unity
+    guid: 8d8cfe28b9c47d4428a0542b597a312a
   - enabled: 1
-    path: Assets/Scenes/E edit.unity
-    guid: a353c09fa67e7df4ca08812e50e3b7eb
+    path: Assets/Scenes/E editar.unity
+    guid: 7cf3797545e3d64498418dafa7ba24e9
+  - enabled: 1
+    path: Assets/Scenes/E Optim..unity
+    guid: f3e46a63b87cdf54b8c404750fddf635
   - enabled: 1
     path: Assets/Scenes/E conteo.unity
     guid: 9ecce04d784e3a342ae19ec2950ceb8b
   - enabled: 1
-    path: Assets/Scenes/E Optim..unity
-    guid: f3e46a63b87cdf54b8c404750fddf635
+    path: Assets/Scenes/E hora editar.unity
+    guid: 00da5b610fa1d194d85ffe4cad0d7a27
   m_configObjects: {}
