@@ -9,19 +9,25 @@ using UnityEngine.UIElements;
 public class LineScript2 : MonoBehaviour
 {
     [SerializeField] int modoDibujo=0;
-    
+    //Linea
     private LineRenderer linea2;
     private Vector3 mousePos;
     public Material material;
     private int lineaActual = 0;
     private Vector3 startMousePos;
+
     [SerializeField]
     private Text distText;
     private float distance;
-
+    //Mesa
     public GameObject mesa;
     public Camera mainCamera;
-
+    private int mesaActual = 0;
+    public float factorTam = 0.001f;
+    private GameObject ultimoSpawn = null;
+    private float primerTam;
+    private float startX;
+    private float startY;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,8 +75,22 @@ public class LineScript2 : MonoBehaviour
             //Mesa
             if (Input.GetMouseButtonDown(0))
             {
-                Vector3 mesaPos = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
-                Instantiate(mesa, mesaPos, Quaternion.identity);
+                mesaActual++;
+                Vector3 mesaPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
+                mesaPos.z = 0;
+                startX = mesaPos.x;
+                startY = mesaPos.y;
+                //mesa = new GameObject("Mesa" + mesaActual);
+                ultimoSpawn=Instantiate(mesa, mesaPos, Quaternion.identity);
+                //primerTam = ultimoSpawn.transform.localScale.x;
+                //primerTam = ultimoSpawn.transform.localScale.y;
+            }
+            if (Input.GetMouseButton(0))
+            {
+                Vector2 size = ultimoSpawn.transform.localScale;
+                size.x = primerTam + (Input.mousePosition.x - startX) * factorTam;
+                size.y = primerTam + (Input.mousePosition.y - startY) * factorTam;
+                ultimoSpawn.transform.localScale = size;
             }
         }
 

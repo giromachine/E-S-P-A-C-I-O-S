@@ -167,6 +167,7 @@ MonoBehaviour:
   distText: {fileID: 0}
   mesa: {fileID: 5679540062167606573, guid: b05ef00efae379e4f8aa491d7e9b2c5c, type: 3}
   mainCamera: {fileID: 519420031}
+  factorTam: 0.02
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1037,7 +1038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040126308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
