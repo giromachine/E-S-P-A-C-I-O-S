@@ -8,17 +8,23 @@ using UnityEngine.UIElements;
 
 public class LineScript2 : MonoBehaviour
 {
+    //Seleccion de modo
     [SerializeField] int modoDibujo=0;
-    //Linea
+
+
+
+    //Lineas
     private LineRenderer linea2;
     private Vector3 mousePos;
     public Material material;
     private int lineaActual = 0;
     private Vector3 startMousePos;
 
+    //Medidas
     [SerializeField]
-    private Text distText;
+    public Text distText;
     private float distance;
+
     //Mesa
     public GameObject mesa;
     public Camera mainCamera;
@@ -37,62 +43,68 @@ public class LineScript2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (modoDibujo == 1)
+        switch (modoDibujo)
         {
-            //Lineas
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (linea2 == null)
+            case 1:
+                //Lineas
+                if (Input.GetMouseButtonDown(0))
                 {
-                    crearLinea();
+                    if (linea2 == null)
+                    {
+                        crearLinea();
+                    }
+                    startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    startMousePos.z = 0;
+                    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    mousePos.z = 0;
+                    linea2.SetPosition(0, mousePos);
+                    linea2.SetPosition(1, mousePos);
                 }
-                startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                startMousePos.z = 0;
-                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.z = 0;
-                linea2.SetPosition(0, mousePos);
-                linea2.SetPosition(1, mousePos);
-            }
-            else if (Input.GetMouseButtonUp(0) && linea2)
-            {
-                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.z = 0;
-                linea2.SetPosition(1, mousePos);
-                linea2 = null;
-                lineaActual++;
-            }
-            else if (Input.GetMouseButton(0) && linea2)
-            {
-                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.z = 0;
-                linea2.SetPosition(1, mousePos);
-                distance = (mousePos - startMousePos).magnitude;
-                distText.text = distance.ToString("F2") + " metros";
-            }
+                else if (Input.GetMouseButtonUp(0) && linea2)
+                {
+                    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    mousePos.z = 0;
+                    linea2.SetPosition(1, mousePos);
+                    linea2 = null;
+                    lineaActual++;
+                }
+                else if (Input.GetMouseButton(0) && linea2)
+                {
+                    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    mousePos.z = 0;
+                    linea2.SetPosition(1, mousePos);
+                    distance = (mousePos - startMousePos).magnitude;
+                    distText.text = distance.ToString("F2") + " metros";
+                }
+
+                break;
+            case 2:
+                {
+                    //Mesa
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        mesaActual++;
+                        Vector2 mesaPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
+                        startX = mesaPos.x;
+                        startY = mesaPos.y;
+                        //mesa = new GameObject("Mesa" + mesaActual);
+                        ultimoSpawn = Instantiate(mesa, mesaPos, Quaternion.identity);
+                        //primerTam = ultimoSpawn.transform.localScale.x;
+                        //primerTam = ultimoSpawn.transform.localScale.y;
+                    }
+                    if (Input.GetMouseButton(0))
+                    {
+                        Vector2 size = ultimoSpawn.transform.localScale;
+                        size.x = primerTam + (Input.mousePosition.x - startX) * factorTam;
+                        size.y = primerTam + (Input.mousePosition.y - startY) * factorTam;
+                        ultimoSpawn.transform.localScale = size;
+                    }
+
+                    break;
+                }
         }
-        else if (modoDibujo == 2)
-        {
-            //Mesa
-            if (Input.GetMouseButtonDown(0))
-            {
-                mesaActual++;
-                Vector3 mesaPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
-                mesaPos.z = 0;
-                startX = mesaPos.x;
-                startY = mesaPos.y;
-                //mesa = new GameObject("Mesa" + mesaActual);
-                ultimoSpawn=Instantiate(mesa, mesaPos, Quaternion.identity);
-                //primerTam = ultimoSpawn.transform.localScale.x;
-                //primerTam = ultimoSpawn.transform.localScale.y;
-            }
-            if (Input.GetMouseButton(0))
-            {
-                Vector2 size = ultimoSpawn.transform.localScale;
-                size.x = primerTam + (Input.mousePosition.x - startX) * factorTam;
-                size.y = primerTam + (Input.mousePosition.y - startY) * factorTam;
-                ultimoSpawn.transform.localScale = size;
-            }
-        }
+
+
 
         void crearLinea()
         {
@@ -104,9 +116,9 @@ public class LineScript2 : MonoBehaviour
             linea2.useWorldSpace = true;
             linea2.numCapVertices = 50;
         }
-        
-       
+
     }
+    
     }
 
 
