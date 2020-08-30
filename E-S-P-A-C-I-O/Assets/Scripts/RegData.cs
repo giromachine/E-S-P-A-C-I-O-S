@@ -4,28 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class TextData : MonoBehaviour
+public class RegData : MonoBehaviour
 {
     public string Mail;
+    public string PassW;
     public GameObject inputFieldMail;
     public GameObject inputFieldPassW;
-    public GameObject textDisplay;
-    public string PassW;
 
     private void Awake()
     {
-        int textDataCount = FindObjectsOfType<TextData>().Length;
-        if (textDataCount > 1)
+        int RegDataCount = FindObjectsOfType<RegData>().Length;
+        if (RegDataCount > 1)
         {
-            DestroyTextData();
+            DestroyRegData();
         }
         else
         {
             DontDestroyOnLoad(gameObject);
         }
     }
-
-    private void DestroyTextData()
+    private void DestroyRegData()
     {
         gameObject.SetActive(false);
         Destroy(gameObject);
@@ -35,5 +33,4 @@ public class TextData : MonoBehaviour
         Mail = inputFieldMail.GetComponent<TextMeshProUGUI>().text;
         PassW = inputFieldPassW.GetComponent<TextMeshProUGUI>().text;
     }
-
 }
