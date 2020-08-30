@@ -21,10 +21,12 @@ public class TextData : MonoBehaviour
         if (textDataCount > 1)
         {
             DestroyTextData();
+            Debug.Log("No se encontro text data");
         }
         else
         {
             DontDestroyOnLoad(gameObject);
+            Debug.Log("Se encontro text data");
         }
     }
 
