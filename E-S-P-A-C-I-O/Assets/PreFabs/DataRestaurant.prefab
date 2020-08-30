@@ -47,8 +47,14 @@ MonoBehaviour:
   Direc: 
   Tel: 
   D: 0
+  L: 0
+  Ma: 0
+  Mi: 0
+  J: 0
+  V: 0
+  S: 0
+  OnService: 0
   inputFieldName: {fileID: 0}
   inputFieldDirec: {fileID: 0}
   inputFieldTel: {fileID: 0}
-  Dom: {fileID: 0}
   textDisplay: {fileID: 0}
