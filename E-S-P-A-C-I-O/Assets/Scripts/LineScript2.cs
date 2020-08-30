@@ -43,7 +43,15 @@ public class LineScript2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (modoDibujo)
+
+        if (Input.GetKeyDown("l"))
+        {
+            modoDibujo = 1;
+        }else if (Input.GetKeyDown("m"))
+        {
+            modoDibujo = 2;
+        }
+            switch (modoDibujo)
         {
             case 1:
                 //Lineas
@@ -54,16 +62,16 @@ public class LineScript2 : MonoBehaviour
                         crearLinea();
                     }
                     startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    startMousePos.z = 0;
+                    startMousePos.z = -2;
                     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    mousePos.z = 0;
+                    mousePos.z = -2;
                     linea2.SetPosition(0, mousePos);
                     linea2.SetPosition(1, mousePos);
                 }
                 else if (Input.GetMouseButtonUp(0) && linea2)
                 {
                     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    mousePos.z = 0;
+                    mousePos.z = -2;
                     linea2.SetPosition(1, mousePos);
                     linea2 = null;
                     lineaActual++;
@@ -71,7 +79,7 @@ public class LineScript2 : MonoBehaviour
                 else if (Input.GetMouseButton(0) && linea2)
                 {
                     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    mousePos.z = 0;
+                    mousePos.z = -1;
                     linea2.SetPosition(1, mousePos);
                     distance = (mousePos - startMousePos).magnitude;
                     distText.text = distance.ToString("F2") + " metros";
@@ -84,9 +92,10 @@ public class LineScript2 : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         mesaActual++;
-                        Vector2 mesaPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
+                        Vector3 mesaPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y),0f);
                         startX = mesaPos.x;
                         startY = mesaPos.y;
+                        mesaPos.z = -1;
                         //mesa = new GameObject("Mesa" + mesaActual);
                         ultimoSpawn = Instantiate(mesa, mesaPos, Quaternion.identity);
                         //primerTam = ultimoSpawn.transform.localScale.x;
