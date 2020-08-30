@@ -11,6 +11,8 @@ public class RegData : MonoBehaviour
     public GameObject inputFieldMail;
     public GameObject inputFieldPassW;
 
+    
+
     private void Awake()
     {
         int RegDataCount = FindObjectsOfType<RegData>().Length;

@@ -1655,17 +1655,17 @@ PrefabInstance:
     - target: {fileID: 6597248301053611212, guid: a33d34cc2996d7a4eb93eae48c4b35c1,
         type: 3}
       propertyPath: Scene.Array.data[0]
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6597248301053611212, guid: a33d34cc2996d7a4eb93eae48c4b35c1,
         type: 3}
       propertyPath: Scene.Array.data[1]
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6597248301053611212, guid: a33d34cc2996d7a4eb93eae48c4b35c1,
         type: 3}
       propertyPath: Scene.Array.data[2]
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6597248301053611212, guid: a33d34cc2996d7a4eb93eae48c4b35c1,
         type: 3}
