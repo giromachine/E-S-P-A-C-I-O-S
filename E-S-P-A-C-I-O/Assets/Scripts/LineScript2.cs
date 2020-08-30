@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 
 public class LineScript2 : MonoBehaviour
 {
+    [SerializeField] int modoDibujo=0;
     
     private LineRenderer linea2;
     private Vector3 mousePos;
@@ -30,44 +31,48 @@ public class LineScript2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-                //Lineas
-                if (Input.GetMouseButtonDown(0))
+        if (modoDibujo == 1)
+        {
+            //Lineas
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (linea2 == null)
                 {
-                    if (linea2 == null)
-                    {
-                        crearLinea();
-                    }
-                    startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    startMousePos.z = 0;
-                    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    mousePos.z = 0;
-                    linea2.SetPosition(0, mousePos);
-                    linea2.SetPosition(1, mousePos);
+                    crearLinea();
                 }
-                else if (Input.GetMouseButtonUp(0) && linea2)
-                {
-                    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    mousePos.z = 0;
-                    linea2.SetPosition(1, mousePos);
-                    linea2 = null;
-                    lineaActual++;
-                }
-                else if (Input.GetMouseButton(0) && linea2)
-                {
-                    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    mousePos.z = 0;
-                    linea2.SetPosition(1, mousePos);
-                    distance = (mousePos - startMousePos).magnitude;
-                    distText.text = distance.ToString("F2") + " metros";
-                }
-
-                //Mesa
-                if (Input.GetMouseButtonDown(0))
-                {
-                    Vector3 mesaPos = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,0f));
-                    Instantiate(mesa, mesaPos, Quaternion.identity);
-                }
-        
+                startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                startMousePos.z = 0;
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0;
+                linea2.SetPosition(0, mousePos);
+                linea2.SetPosition(1, mousePos);
+            }
+            else if (Input.GetMouseButtonUp(0) && linea2)
+            {
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0;
+                linea2.SetPosition(1, mousePos);
+                linea2 = null;
+                lineaActual++;
+            }
+            else if (Input.GetMouseButton(0) && linea2)
+            {
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0;
+                linea2.SetPosition(1, mousePos);
+                distance = (mousePos - startMousePos).magnitude;
+                distText.text = distance.ToString("F2") + " metros";
+            }
+        }
+        else if (modoDibujo == 2)
+        {
+            //Mesa
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector3 mesaPos = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
+                Instantiate(mesa, mesaPos, Quaternion.identity);
+            }
+        }
 
         void crearLinea()
         {
@@ -79,14 +84,9 @@ public class LineScript2 : MonoBehaviour
             linea2.useWorldSpace = true;
             linea2.numCapVertices = 50;
         }
-
-        
         
        
     }
     }
-public class toggles
-{
 
-}
 
