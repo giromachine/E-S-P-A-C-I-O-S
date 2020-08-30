@@ -54,16 +54,16 @@ public class LineScript2 : MonoBehaviour
                         crearLinea();
                     }
                     startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    startMousePos.z = 0;
+                    startMousePos.z = -1;
                     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    mousePos.z = 0;
+                    mousePos.z = -1;
                     linea2.SetPosition(0, mousePos);
                     linea2.SetPosition(1, mousePos);
                 }
                 else if (Input.GetMouseButtonUp(0) && linea2)
                 {
                     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    mousePos.z = 0;
+                    mousePos.z = -1;
                     linea2.SetPosition(1, mousePos);
                     linea2 = null;
                     lineaActual++;
@@ -71,7 +71,7 @@ public class LineScript2 : MonoBehaviour
                 else if (Input.GetMouseButton(0) && linea2)
                 {
                     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    mousePos.z = 0;
+                    mousePos.z = -1;
                     linea2.SetPosition(1, mousePos);
                     distance = (mousePos - startMousePos).magnitude;
                     distText.text = distance.ToString("F2") + " metros";
