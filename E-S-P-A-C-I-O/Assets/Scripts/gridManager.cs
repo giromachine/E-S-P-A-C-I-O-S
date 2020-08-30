@@ -6,8 +6,11 @@ using UnityEngine;
 
 public class gridManager : MonoBehaviour
 {
-    private int rows = 5;
-    private int cols = 8;
+    [SerializeField]
+    private int rows = datosDimension.ancho;
+    [SerializeField]
+    private int cols = datosDimension.largo;
+    [SerializeField]
     private float tileSize = 1;
 
     // Start is called before the first frame update
@@ -19,6 +22,8 @@ public class gridManager : MonoBehaviour
     private void GenerateGrid()
     {
         GameObject referenceTile = (GameObject)Instantiate(Resources.Load("Tile"));
+
+        tileSize = (rows * cols) / (rows*cols)*0.5f;
 
         for (int row = 0; row < rows; row++)
         {
